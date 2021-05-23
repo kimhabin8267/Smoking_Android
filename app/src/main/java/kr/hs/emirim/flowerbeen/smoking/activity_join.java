@@ -1,9 +1,5 @@
 package kr.hs.emirim.flowerbeen.smoking;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -115,7 +115,7 @@ public class activity_join extends AppCompatActivity {
                     return;
                 }
                 //입력양식에 맞지 않는 경우
-                if (userID.length() < 8 || password.length() < 8 || !(phone.substring(0, 3)).equals("010")) {
+                if (userID.length() < 8 || password.length() < 8 || !(phone).startsWith("010")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity_join.this);
                     dialog = builder.setMessage("입력 양식을 지켜주세요!").setNegativeButton("확인", null).create();
                     dialog.show();
@@ -131,7 +131,7 @@ public class activity_join extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success");
                             if (success) { // 회원등록에 성공한 경우
                                 Toast.makeText(getApplicationContext(), "회원 가입 성공! 환영합니다!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(activity_join.this, alarm.class);
+                                Intent intent = new Intent(activity_join.this, setting.class);
                                 startActivity(intent);
                             } else { // 회원등록에 실패한 경우
                                 Toast.makeText(getApplicationContext(), "회원 가입 실패.. 다시 시도해주세요..!", Toast.LENGTH_SHORT).show();

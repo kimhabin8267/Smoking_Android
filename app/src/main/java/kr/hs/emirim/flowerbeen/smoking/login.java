@@ -1,13 +1,13 @@
 package kr.hs.emirim.flowerbeen.smoking;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -53,7 +53,7 @@ public class login extends AppCompatActivity {
                             String password = jsonObject.getString("password");
 
                             Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(login.this, alarm.class);
+                            Intent intent = new Intent(login.this, setting.class);
                             intent.putExtra("userID", userID);
                             intent.putExtra("password", password);
                             startActivity(intent);

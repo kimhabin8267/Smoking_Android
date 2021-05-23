@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smoking"
         android:usesCleartextTraffic="true">
-        <activity android:name=".check_login"></activity>
-        <activity android:name=".sound" />
+        <activity android:name=".smoke"></activity>
+        <activity android:name=".StartSmokeActivity" />
+        <activity android:name=".smoking" />
+        <activity android:name=".check_login" />
         <activity android:name=".map" />
-        <activity android:name=".alarm" />
+        <activity android:name=".setting" />
         <activity android:name=".member" />
         <activity android:name=".activity_join" />
         <activity android:name=".login" />

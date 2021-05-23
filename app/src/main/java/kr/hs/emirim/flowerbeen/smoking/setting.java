@@ -1,8 +1,5 @@
 package kr.hs.emirim.flowerbeen.smoking;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,14 +9,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 
-public class alarm extends AppCompatActivity {
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class setting extends AppCompatActivity {
     private Button btn_logout;
     private ImageButton btn_location, btn_update_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm);
+        setContentView(R.layout.activity_setting);
 
         //        액션바 숨기기
         ActionBar actionBar = getSupportActionBar();
@@ -27,7 +27,7 @@ public class alarm extends AppCompatActivity {
 
         btn_logout = findViewById(R.id.btn_logout);//로그아웃 버튼
 
-        TimePicker timePicker = (TimePicker) this.findViewById(R.id.timePicker);
+        TimePicker timePicker = this.findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true); // 24H Mode.
 
         btn_logout.setOnClickListener(v -> {//로그아웃 버튼을 누를 경우
@@ -35,7 +35,7 @@ public class alarm extends AppCompatActivity {
                     .setTitle("로그아웃").setMessage("지금 로그아웃 하시겠습니까??")
                     .setPositiveButton("예", new DialogInterface.OnClickListener() {//로그아웃 하는 경우
                         public void onClick(DialogInterface dialog, int whichButton) {
-                            Intent intent = new Intent(alarm.this/*현재 activity 위치*/, MainActivity.class/*이동 activity 위치*/);
+                            Intent intent = new Intent(setting.this/*현재 activity 위치*/, MainActivity.class/*이동 activity 위치*/);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);//setFlags - 하나의 Flag를 지정한다.
                             //FLAG_ACTIVITY_CLEAR_TOP - 상위 스택 제거
                             //설정되어 있고 시작되는 activity가 현재 작업에서 이미 실행 중이면 해당 activity의
@@ -60,7 +60,7 @@ public class alarm extends AppCompatActivity {
         });
 
         //회원수정 화면 전환
-        btn_location = (ImageButton) findViewById(R.id.btn_location);//회원의 위치 버튼
+        btn_location = findViewById(R.id.btn_location);//회원의 위치 버튼
         btn_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class alarm extends AppCompatActivity {
             }
         });
 
-        btn_update_user = (ImageButton) findViewById(R.id.btn_update_user);//회원정보 수정 버튼
+        btn_update_user = findViewById(R.id.btn_update_user);//회원정보 수정 버튼
         btn_update_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

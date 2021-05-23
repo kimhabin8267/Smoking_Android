@@ -1,14 +1,14 @@
 package kr.hs.emirim.flowerbeen.smoking;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class sound extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class smoke extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sound);
+        setContentView(R.layout.activity_smoke);
     }
 }
